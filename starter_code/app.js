@@ -1,6 +1,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const SpotifyWebApi = require('spotify-web-api-node');
 const auth = require('./private/spotify-auth');
 
@@ -13,6 +14,7 @@ console.log(auth);
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressLayouts);
+app.use(morgan('dev'));
 
 // sets
 app.set('layout', 'layouts/main');
